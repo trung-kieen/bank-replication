@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtPassword = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.inputPassword = new System.Windows.Forms.TextBox();
@@ -36,10 +37,17 @@
             this.txtTaiKhoan = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.uvGetSubcribersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnDangNhap = new DevExpress.XtraEditors.CheckButton();
             this.btnThoat = new DevExpress.XtraEditors.CheckButton();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.uvGetSubcribersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new BankReplication.DataSet1();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getSubcribersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_SubcribersTableAdapter = new BankReplication.DataSet1TableAdapters.Get_SubcribersTableAdapter();
+            this.getSubcribersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -47,18 +55,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.inputTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uvGetSubcribersBindingSource)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.NGANHANGDATASET)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uvGetSubcribersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getSubcribersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getSubcribersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(5, 5);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(64, 19);
+            this.txtPassword.Size = new System.Drawing.Size(44, 13);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.Text = "Mật khẩu";
-            this.txtPassword.Click += new System.EventHandler(this.labelControl2_Click);
             // 
             // panelControl1
             // 
@@ -75,8 +89,9 @@
             this.inputPassword.Location = new System.Drawing.Point(96, 3);
             this.inputPassword.Name = "inputPassword";
             this.inputPassword.PasswordChar = '*';
-            this.inputPassword.Size = new System.Drawing.Size(329, 27);
+            this.inputPassword.Size = new System.Drawing.Size(329, 21);
             this.inputPassword.TabIndex = 3;
+            this.inputPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputPassword_KeyDown);
             // 
             // panelControl2
             // 
@@ -92,14 +107,15 @@
             // 
             this.inputTaiKhoan.Location = new System.Drawing.Point(96, 2);
             this.inputTaiKhoan.Name = "inputTaiKhoan";
-            this.inputTaiKhoan.Size = new System.Drawing.Size(329, 28);
+            this.inputTaiKhoan.Size = new System.Drawing.Size(329, 20);
             this.inputTaiKhoan.TabIndex = 2;
+            this.inputTaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputTaiKhoan_KeyDown);
             // 
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Location = new System.Drawing.Point(5, 5);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(70, 19);
+            this.txtTaiKhoan.Size = new System.Drawing.Size(46, 13);
             this.txtTaiKhoan.TabIndex = 0;
             this.txtTaiKhoan.Text = "Tài khoản";
             // 
@@ -115,20 +131,28 @@
             // 
             // cmbChiNhanh
             // 
+            this.cmbChiNhanh.DataSource = this.getSubcribersBindingSource1;
+            this.cmbChiNhanh.DisplayMember = "TENCN";
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(96, 2);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(329, 27);
+            this.cmbChiNhanh.Size = new System.Drawing.Size(329, 21);
             this.cmbChiNhanh.TabIndex = 1;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(5, 5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(74, 19);
+            this.labelControl1.Size = new System.Drawing.Size(49, 13);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Chi Nhánh";
             // 
+            // NGANHANGDATASET
+            // 
+            //this.NGANHANGDATASET.DataSetName = "NGANHANGDataSet";
+            //this.NGANHANGDATASET.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //// 
             // btnDangNhap
             // 
             this.btnDangNhap.Location = new System.Drawing.Point(94, 237);
@@ -137,6 +161,7 @@
             this.btnDangNhap.TabIndex = 1;
             this.btnDangNhap.TabStop = false;
             this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnThoat
             // 
@@ -146,7 +171,7 @@
             this.btnThoat.TabIndex = 0;
             this.btnThoat.TabStop = false;
             this.btnThoat.Text = "Thoát";
-            this.btnThoat.CheckedChanged += new System.EventHandler(this.btnThoat_CheckedChanged);
+            this.btnThoat.CheckedChanged += new System.EventHandler(this.btnThoat_Click);
             // 
             // panelContainer
             // 
@@ -160,12 +185,44 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(529, 303);
             this.panelContainer.TabIndex = 0;
-            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
+            // 
+            // uv_GetSubcribersTableAdapter
+            // 
+            //this.uv_GetSubcribersTableAdapter.ClearBeforeFill = true;
+            //// 
+            //// uvGetSubcribersBindingSource1
+            //// 
+            //this.uvGetSubcribersBindingSource1.DataMember = "uv_GetSubcribers";
+            //this.uvGetSubcribersBindingSource1.DataSource = this.NGANHANGDATASET;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // getSubcribersBindingSource
+            // 
+            this.getSubcribersBindingSource.DataMember = "Get_Subcribers";
+            this.getSubcribersBindingSource.DataSource = this.dataSet1;
+            // 
+            // get_SubcribersTableAdapter
+            // 
+            this.get_SubcribersTableAdapter.ClearBeforeFill = true;
+            // 
+            // getSubcribersBindingSource1
+            // 
+            this.getSubcribersBindingSource1.DataMember = "Get_Subcribers";
+            this.getSubcribersBindingSource1.DataSource = this.dataSet1;
             // 
             // formDangNhap
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 497);
             this.Controls.Add(this.panelContainer);
@@ -184,8 +241,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uvGetSubcribersBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.NGANHANGDATASET)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uvGetSubcribersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getSubcribersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getSubcribersBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,5 +267,13 @@
         private DevExpress.XtraEditors.CheckButton btnDangNhap;
         private DevExpress.XtraEditors.CheckButton btnThoat;
         private DevExpress.XtraEditors.PanelControl panelContainer;
+        private System.Windows.Forms.BindingSource uvGetSubcribersBindingSource;
+        //private NGANHANGDataSetTableAdapters.uv_GetSubcribersTableAdapter uv_GetSubcribersTableAdapter;
+        private System.Windows.Forms.BindingSource uvGetSubcribersBindingSource1;
+        private System.Windows.Forms.BindingSource dataSet1BindingSource;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource getSubcribersBindingSource;
+        private DataSet1TableAdapters.Get_SubcribersTableAdapter get_SubcribersTableAdapter;
+        private System.Windows.Forms.BindingSource getSubcribersBindingSource1;
     }
 }

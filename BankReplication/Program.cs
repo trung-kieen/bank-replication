@@ -19,16 +19,16 @@ namespace BankReplication
 
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=DESKTOP-T4TQ0L3;Initial Catalog=NganHang;Integrated Security=True";
+        public static String connstr_publisher = "Provider=SQLNCLI11;Data Source=DESKTOP-G5ISP1V\\HOME;User ID=sa;Initial Catalog=NGANHANG";
         public static SqlDataReader myReader;
-        public static String servername = "";
-        public static String username = "";
-        public static String mlogin = "";
-        public static String password = "";
+        public static String servername = "DESKTOP-G5ISP1V\\HOME";
+        public static String username = "sa";
+        public static String mlogin = "sa";
+        public static String password = "123";
 
         public static String database = "NGANHANG";
-        public static String remotelogin = "htkn";
-        public static String remotepassword = "123456";
+        public static String remotelogin = "HTKN";
+        public static String remotepassword = "123";
 
         public static String mloginDN = "";
         public static String passwordDN = "";
@@ -92,7 +92,7 @@ namespace BankReplication
             try
             {
                 myReader = sqlcmd.ExecuteReader();
-                Program.conn.Close();
+                // Do not close connection here, it cause myReader unable to read
                 return myReader;
             }
             catch (Exception e)
@@ -160,6 +160,7 @@ namespace BankReplication
             }
 
         }
+
 
     }
 
